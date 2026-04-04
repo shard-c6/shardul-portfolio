@@ -1,0 +1,311 @@
+You are a senior creative frontend engineer and 3D web designer with deep expertise in Three.js, GSAP ScrollTrigger, Spline, Lenis, and React. Build a complete, production-grade single-page e-portfolio website for Shardul Chogale, an aspiring Data Engineer and student who builds real-life scalable systems that make real change.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IDENTITY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Name: Shardul Chogale
+Initials: SC
+Role: Aspiring Data Engineer | Student
+Tagline: "Building real-life scalable systems that make real change."
+Tech Stack: Python, Machine Learning, LLMs & AI, SQL, DSA, C, Java
+Projects: [TO BE ADDED — leave styled placeholder cards with "Coming Soon" state]
+Contact: [Add GitHub, LinkedIn, email as placeholders]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DESIGN PHILOSOPHY — EARTHY MINIMALIST 3D PREMIUM
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+This is NOT a dark neon portfolio. It is warm, refined, and intellectual —
+like a premium print magazine translated into an interactive 3D web experience.
+
+Color Palette (strict, do not deviate):
+  Background primary:  #F5F0E8  (warm beige — like aged paper)
+  Background surface:  #EDE8DC  (slightly darker beige for card surfaces)
+  Text primary:        #1A1916  (near-black charcoal)
+  Text secondary:      #6B6760  (warm mid-grey)
+  Accent / CTA:        #7D9E7A  (sage green — used sparingly, high-impact moments only)
+  Accent soft:         #BEB89E  (warm taupe — borders, dividers, subtle UI)
+  Accent dark:         #4A6B47  (deeper sage for hover states)
+
+Typography:
+  Display font: "Playfair Display" — for hero names, section numbers, editorial headers
+  Body font: "DM Sans" — clean, geometric, warm (not Inter)
+  Mono font: "JetBrains Mono" — for tech stack labels, code snippets, timestamps
+  Load all from Google Fonts CDN
+
+Rules:
+  — No pure white backgrounds. Always warm beige.
+  — No blue, purple, neon, or cold tones anywhere.
+  — Sage green appears ONLY on: CTA buttons, hover borders, skill indicators, active states.
+  — All border strokes: 0.5px, color #BEB89E
+  — Grain overlay: fixed pseudo-element on body using SVG feTurbulence at 4% opacity
+  — Section numbers displayed in oversized Playfair Display, color #BEB89E, behind content
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 1 — HERO (3D Avatar + Kinetic Type)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Full-viewport hero. Split layout: left 55% = text, right 45% = 3D canvas.
+
+LEFT SIDE:
+  — Pre-title: "Hello, I'm" in 13px JetBrains Mono, color #6B6760, with a blinking cursor
+  — Name: "Shardul Chogale" in Playfair Display, ~80px, weight 700, charcoal
+    Each letter animates in with a staggered vertical reveal (GSAP SplitText, y:40→0, opacity 0→1, stagger: 0.04s)
+  — Role line: typewriter effect cycling through:
+    "Aspiring Data Engineer"  →  "ML & AI Builder"  →  "Systems Thinker"
+    Built with a custom JS typewriter using JetBrains Mono, sage green color
+  — Tagline: "Building real-life scalable systems that make real change."
+    DM Sans 18px, color #6B6760, appears after name animation (0.8s delay)
+  — CTA buttons (two):
+    Primary: "View My Work ↓" — sage green border + text, hover fills sage green bg
+    Secondary: "Download Resume" — taupe border, charcoal text
+  — Below buttons: a row of 6 tech stack pill badges (Python, ML, SQL, LLMs, C, Java)
+    Each pill: beige bg, taupe border, charcoal text, 12px JetBrains Mono
+
+RIGHT SIDE — 3D AVATAR SCENE (Three.js or Spline embed):
+  — A stylized low-poly 3D character / emoticon representing Shardul
+    Style: minimal geometric humanoid, warm clay/terracotta material tones
+    Sitting or standing in a relaxed pose with subtle idle breathing animation
+  — Avatar behavior:
+    Idle: gentle breathing (chest scale oscillates ±2%, 3s loop, sine ease)
+    Mouse hover: head rotates to follow cursor via raycasting (max ±15° X and Y)
+    Click: avatar waves hand — GSAP timeline, 0.4s ease back
+    Scroll past hero: avatar shrinks and floats into the nav as a small 2cm avatar icon
+  — Background of canvas: completely transparent (alpha: true in WebGLRenderer)
+    Behind canvas: a very subtle wireframe icosphere in #BEB89E at 6% opacity, slowly rotating
+  — Ambient particles: 60 tiny dots (#7D9E7A, size 0.8px) drifting upward very slowly
+
+BOTTOM: Animated scroll indicator — a thin vertical line pulses downward with a dot, "scroll" label in mono 10px, #BEB89E
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 2 — ABOUT ME
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Section number "01" in 120px Playfair Display, #BEB89E, positioned behind content as ghost text.
+
+Layout: Two asymmetric columns (40% / 60%).
+
+LEFT: A large circular frame (400px diameter) containing either:
+  — A stylized illustrated portrait placeholder (warm line-art style)
+  — Or a CSS art version of the avatar
+  Frame border: 1px sage green dashed circle, slowly rotating (CSS animation, 20s linear infinite)
+  Below frame: three stat counters that count up on scroll:
+    "3+" / "Years Learning" | "10+" / "Projects Built" | "7+" / "Technologies"
+
+RIGHT:
+  — Section label "About Me" in 11px JetBrains Mono, sage green, uppercase spaced
+  — Headline: "A student who thinks in systems." — Playfair Display 36px
+  — 3-paragraph bio (write placeholder content for Shardul):
+    Para 1: About being a student passionate about data engineering and AI
+    Para 2: How he thinks about scalability, systems design, and real-world impact
+    Para 3: Outside tech — interests, mindset, philosophy
+  — Each paragraph slides in from right (x: 60px → 0, opacity 0→1) as user scrolls
+
+BACKGROUND TEXTURE: Very faint diagonal line pattern (CSS repeating-linear-gradient, 1px lines, 1% opacity) across this section only.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 3 — SKILLS & TECH STACK
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Section number "02" ghost behind content.
+Title: "Arsenal" in Playfair Display 52px.
+Subtitle: "Technologies I work with" in DM Sans 16px, #6B6760.
+
+Split into two subsections:
+
+A) PRIMARY SKILLS — 3D Floating Cards Grid
+  Render each technology as a 3D tilt card (CSS perspective: 1000px, transform-style: preserve-3d).
+  Cards are staggered in a 3-column responsive grid with slight vertical offsets (masonry feel).
+  Each card (EDE8DC background, 1px #BEB89E border, 12px radius):
+    — Tech icon (SVG, 32px)
+    — Tech name in DM Sans 15px font-weight 500
+    — Category label (e.g. "Language", "AI/ML", "Database") in 10px mono, #6B6760
+    — Proficiency bar: a thin 2px horizontal line that fills left-to-right in sage green on scroll
+    — On hover: card lifts with translateZ(30px) + 8° tilt toward cursor, border turns sage green 1px
+  Technologies to include (with icons):
+    Python (snake icon), Machine Learning (neural net icon), LLMs & AI (brain icon),
+    SQL (database icon), DSA (tree/graph icon), C (bracket icon), Java (coffee icon)
+
+B) LEARNING ROADMAP — Timeline strip
+  A horizontal scroll strip (or collapsible accordion on mobile) showing:
+  "Currently exploring →" with pills for: Data Engineering pipelines, Apache Spark, Airflow, dbt, Cloud (AWS/GCP)
+  These appear with a dashed border + slightly faded opacity — indicating "in progress"
+
+Cards stagger entrance: GSAP staggerFrom, y:50→0, opacity 0→1, stagger 0.1s, ScrollTrigger
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 4 — PROJECTS SHOWCASE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Section number "03" ghost behind content.
+Title: "Work" in Playfair Display 52px.
+
+Since projects are coming soon, design the section in TWO STATES:
+
+STATE A (current — "Coming Soon"):
+  Show 3 large placeholder project cards in a horizontal pinned scroll (GSAP ScrollTrigger horizontal section).
+  Each card (full bleed, ~600px wide, aspect ratio 16/9):
+    — Background: EDE8DC with a minimal animated loader (three dots pulsing in sage green)
+    — Large "✦" decorative glyph centered, #BEB89E
+    — Text: "Project [01/02/03]" — Playfair Display 28px
+    — Sub-text: "In progress — coming soon" — DM Sans 14px, #6B6760
+    — A dashed sage green border with a corner bracket treatment (CSS pseudo-elements)
+  3D Hover: each card has mouse-tracked tilt (max ±10°, JS mousemove on card)
+  Entrance: cards scale from 0.88→1 + opacity 0→1 as horizontal scroll progresses
+
+STATE B (future — add real projects):
+  Leave commented HTML + JS scaffolding for adding real project data:
+  Each project card will show: thumbnail, title, tech tags, description, GitHub + Live links
+
+Note: Add a subtle sticky note element (CSS transform: rotate(-2deg)) that reads
+"Projects under construction — check back soon" in JetBrains Mono 12px
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 5 — RESUME / TIMELINE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Section number "04" ghost behind content.
+Title: "Journey" in Playfair Display 52px.
+
+Vertical timeline, centered spine line (1px #BEB89E).
+The spine line draws itself downward as user scrolls (SVG stroke-dashoffset animated via GSAP ScrollTrigger scrub).
+
+Timeline entries (left/right alternating):
+  Education:
+    — [Current University Name] | B.Tech / Degree | 20XX – Present
+      "Studying [field]. Building systems between lectures."
+    — [Add any certifications or courses as additional entries with placeholder]
+  
+  Milestones (use placeholders that Shardul can replace):
+    — "Started learning Python" — [Year]
+    — "First ML model trained" — [Year]
+    — "First SQL project" — [Year]
+    — "Began exploring Data Engineering" — [Year]
+
+Each entry card:
+  — EDE8DC background, taupe border
+  — Date in JetBrains Mono 11px, sage green
+  — Title in DM Sans 16px, font-weight 500
+  — Description in DM Sans 14px, #6B6760
+  — Entrance: slide in from respective side (GSAP x:±60→0, opacity 0→1)
+
+At bottom: large CTA card with sage green border:
+  "Want the full picture?"
+  Button: "Download Resume PDF" with animated download arrow icon
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 6 — BLOG / THOUGHTS (Bonus Section)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Section number "05" ghost behind content.
+Title: "Thoughts" in Playfair Display 52px.
+Subtitle: "Notes on systems, data, and building things." DM Sans 16px.
+
+Show 3 minimal editorial blog-card placeholders in a 3-column grid:
+  Each card: no image, just:
+    — Category tag (e.g. "Data Engineering", "AI", "Systems")
+    — Post title in Playfair Display 20px (placeholder titles)
+    — Date in mono 11px
+    — "Read →" link in sage green
+  Card hover: border turns sage green, slight translateY(-4px) lift
+
+Note inside HTML comment: "Connect to a CMS (Notion API / Hashnode / Dev.to RSS) for live posts"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 7 — CURRENTLY / OPEN TO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+A minimal, elegant full-width strip between Thoughts and Contact.
+Background: EDE8DC (slightly darker than page bg).
+Three columns with icons:
+
+  ✦  Currently: "Building scalable systems & learning Data Engineering"
+  ✦  Open to: "Internships, Collaborations, Open Source"  
+  ✦  Learning: "Apache Spark, dbt, Cloud Platforms"
+
+Each item fades in with a 0.15s stagger on scroll.
+A small pulsing green dot (CSS animation) precedes "Currently" to show live/active status.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 8 — CONTACT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Section number "06" ghost behind content.
+
+Large kinetic headline split across two lines:
+  "Let's Build" — Playfair Display 72px, charcoal
+  "Something." — Playfair Display 72px, sage green
+Each word animates in with GSAP SplitText (y: 80→0, opacity 0→1, stagger 0.12s, ease expo.out)
+
+Below: DM Sans 18px, #6B6760: "Have a project in mind? Let's talk."
+
+Contact options in a minimal 3-column grid:
+  — Email card (click → mailto)
+  — LinkedIn card (click → link)
+  — GitHub card (click → link)
+  Each card: icon (SVG 24px) + label + handle, taupe border, hover border turns sage green + lift
+
+Magnetic hover effect on each card:
+  Cards attract cursor within 80px radius (JS mousemove delta, max ±10px translate)
+
+Footer (full width, below contact):
+  Left: "SC — Shardul Chogale" in Playfair Display 14px
+  Center: "Built with intention." in JetBrains Mono 11px, #BEB89E
+  Right: Real-time clock in JetBrains Mono 12px updating every second
+  Top border: 0.5px #BEB89E
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+GLOBAL INTERACTIONS & POLISH
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CUSTOM CURSOR:
+  — Inner dot: 10px solid circle, #1A1916
+  — Outer ring: 36px, 1px border #7D9E7A, follows with 0.12s JS lerp lag
+  — On hoverable element: outer ring expands to 56px + border thickens to 2px
+  — On text: outer ring squishes to a thin 2px × 24px vertical bar (I-beam effect)
+  — On CTA button: ring fills sage green at 20% opacity
+
+PAGE LOADER (first visit):
+  — Full-screen beige overlay (#F5F0E8)
+  — Centered: "SC" in Playfair Display 80px, charcoal, draws in via SVG stroke animation
+  — Below: thin 1px horizontal progress bar in sage green, fills 0→100% over 1.8s
+  — Exit: the overlay splits horizontally (top half slides up, bottom slides down) — GSAP two panels
+
+NAVIGATION (sticky, minimal):
+  — Transparent bg, blurs to rgba(245,240,232,0.85) + backdrop-filter: blur(12px) on scroll
+  — Left: "SC" logotype in Playfair Display 20px
+  — Right: nav links in DM Sans 12px uppercase spaced (About, Skills, Work, Journey, Contact)
+    Hover: sage green underline slides in from left (CSS transform scaleX 0→1)
+  — Mobile: hamburger → fullscreen overlay menu
+
+SCROLL PROGRESS BAR:
+  Fixed top bar, 2px height, sage green, fills 0→100% width based on scroll position
+
+SMOOTH SCROLL:
+  Lenis (lerp: 0.075, duration: 1.6) synced with GSAP ticker
+
+NOISE GRAIN OVERLAY:
+  Fixed pseudo-element on body, SVG feTurbulence filter, 4% opacity,
+  gives the whole site an organic analog warmth
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+RESPONSIVE BEHAVIOR
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Desktop (>1280px): Full 3D, all effects active
+Tablet (768–1280px): 3D tilt reduced, hero layout stacks vertically, avatar above text
+Mobile (<768px):
+  — Three.js canvas hidden, replaced with a static WebP export of the 3D avatar
+  — All parallax disabled (use prefers-reduced-motion media query)
+  — Horizontal project scroll becomes vertical swipeable carousel
+  — Custom cursor hidden (touch device)
+  — Font sizes scale down proportionally with clamp()
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PERFORMANCE REQUIREMENTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  — Lazy-load Three.js canvas (IntersectionObserver)
+  — Pause Three.js RAF loop when canvas not in viewport
+  — Dynamic import GSAP and Three.js (code split)
+  — Target bundle: under 280kb gzipped
+  — All images: WebP, lazy loaded with fade-in
+  — Use font-display: swap on all Google Fonts
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DELIVERABLES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. Complete Vite + React project file structure
+2. Full commented source code for all 8 sections
+3. A constants.js file where Shardul can update all personal content
+   (name, tagline, stack, projects, links) without touching component code
+4. README.md with: setup steps, how to add projects, how to deploy to Vercel
+5. Inline TODO comments everywhere a placeholder needs replacing
