@@ -819,6 +819,12 @@ p {
   font-weight: 700;
 }
 
+.about-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .about-stats {
   display: flex;
   gap: var(--space-xl);

@@ -10,6 +10,7 @@
 export const PERSONAL = {
   name: 'Shardul Chogale',
   initials: 'SC',
+  photo: '/images/profile.png', // Or use a direct URL
   role: 'Aspiring Data Engineer | Student',
   tagline: 'Building real-life scalable systems that make real change.',
 
@@ -147,8 +148,8 @@ export const BLOG_POSTS = [
   {
     category: 'Data Engineering',
     title: 'Why Every Data Engineer Should Think Like an Architect',
-    date: 'Coming Soon',
-    link: '#',
+    date: '05-04-2026',
+    link: 'https://medium.com/@shardulchogale1983/why-every-data-engineer-should-think-like-an-architect-8bdfcfcfb8f8',
   },
   {
     category: 'AI',

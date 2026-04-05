@@ -74,8 +74,11 @@ export default function About() {
         <div>
           <div className="about-avatar-frame">
             <div className="about-avatar-inner">
-              {/* TODO: Replace with real photo or illustrated portrait */}
-              <span className="about-avatar-placeholder">SC</span>
+              {PERSONAL.photo ? (
+                <img src={PERSONAL.photo} alt={PERSONAL.name} className="about-avatar-img" />
+              ) : (
+                <span className="about-avatar-placeholder">{PERSONAL.initials}</span>
+              )}
             </div>
           </div>
 
