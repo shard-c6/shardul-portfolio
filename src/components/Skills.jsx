@@ -17,6 +17,10 @@ const SKILL_ICONS = {
 
 function SkillCard({ skill, index }) {
   const cardRef = useRef(null);
+  
+  // Specific sizes to create the exact 4-column Bento Box
+  const BENTO_SIZES = [2, 2, 1, 2, 1, 2, 2];
+  const isLarge = BENTO_SIZES[index] === 2;
 
   const handleMouseMove = useCallback((e) => {
     if (!cardRef.current) return;
@@ -26,7 +30,7 @@ function SkillCard({ skill, index }) {
     const rotateX = (0.5 - y) * 10;
     const rotateY = (x - 0.5) * 10;
     cardRef.current.style.transform =
-      `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(30px)`;
+      `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(20px)`;
   }, []);
 
   const handleMouseLeave = useCallback(() => {
@@ -39,7 +43,7 @@ function SkillCard({ skill, index }) {
   return (
     <div
       ref={cardRef}
-      className="skill-card group"
+      className={`skill-card ${isLarge ? 'bento-large' : 'bento-small'}`}
       style={{
         transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
         transformStyle: 'preserve-3d',
@@ -48,22 +52,26 @@ function SkillCard({ skill, index }) {
       onMouseLeave={handleMouseLeave}
       data-cursor="hover"
     >
-      <div className="skill-card-inner">
-        <div className="skill-card-front">
-          <div className="skill-icon">
-            {SKILL_ICONS[skill.name] || <div />}
-          </div>
+      <div className="skill-card-top">
+        <div className="skill-icon">
+          {SKILL_ICONS[skill.name] || <div />}
+        </div>
+        <div>
           <div className="skill-name">{skill.name}</div>
           <div className="skill-category">{skill.category}</div>
-          <div className="skill-bar">
-            <div
-              className="skill-bar-fill"
-              data-proficiency={skill.proficiency}
-            />
-          </div>
         </div>
-        <div className="skill-card-reveal">
-          <p className="skill-description">{skill.description}</p>
+      </div>
+      
+      {isLarge && (
+        <p className="skill-bento-desc">{skill.description}</p>
+      )}
+
+      <div className="skill-bar-wrapper">
+        <div className="skill-bar">
+          <div
+            className="skill-bar-fill"
+            data-proficiency={skill.proficiency}
+          />
         </div>
       </div>
     </div>
