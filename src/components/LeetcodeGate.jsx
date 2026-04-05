@@ -59,6 +59,27 @@ export default function LeetcodeGate({ hintName, prefix, suffix, expectedChar, c
                {suffix}
              </div>
            </div>
+           
+           {!unlocked && (
+             <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: 'var(--space-sm)' }}>
+               <button 
+                 className="pill" 
+                 style={{ 
+                   cursor: 'pointer', 
+                   background: 'rgba(125, 158, 122, 0.1)', 
+                   border: '1px solid rgba(125, 158, 122, 0.3)',
+                   color: 'var(--text-secondary)'
+                 }}
+                 onClick={() => {
+                   if (inputRef.current) inputRef.current.value = expectedChar;
+                   setUnlocked(true);
+                   setTimeout(() => ScrollTrigger.refresh(), 400);
+                 }}
+               >
+                 Auto-Solve
+               </button>
+             </div>
+           )}
          </div>
       </div>
       

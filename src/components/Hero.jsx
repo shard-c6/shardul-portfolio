@@ -107,16 +107,19 @@ export default function Hero() {
             </a>
           </div>
 
-          <div
-            className="hero-stack"
-            style={{
-              opacity: nameRevealed ? 1 : 0,
-              transform: nameRevealed ? 'translateY(0)' : 'translateY(16px)',
-              transition: 'opacity 0.4s ease 0.2s, transform 0.4s ease 0.2s',
-            }}
-          >
-            {STACK_PILLS.map((tech) => (
-              <span key={tech} className="pill">{tech}</span>
+          <div className="hero-stack">
+            {STACK_PILLS.map((tech, i) => (
+              <span 
+                key={tech} 
+                className="pill hero-pill"
+                style={{
+                  opacity: nameRevealed ? 1 : 0,
+                  transform: nameRevealed ? 'translateY(0)' : 'translateY(16px)',
+                  transition: `opacity 0.4s ease ${0.2 + (i * 0.05)}s, transform 0.4s ease ${0.2 + (i * 0.05)}s`,
+                }}
+              >
+                {tech}
+              </span>
             ))}
           </div>
         </div>
