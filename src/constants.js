@@ -37,13 +37,13 @@ export const PERSONAL = {
 };
 
 export const TECH_STACK = [
-  { name: 'Python', category: 'Language', proficiency: 90 },
-  { name: 'Machine Learning', category: 'AI / ML', proficiency: 70 },
-  { name: 'LLMs & AI', category: 'AI / ML', proficiency: 70 },
-  { name: 'SQL', category: 'Database', proficiency: 85 },
-  { name: 'DSA', category: 'CS Core', proficiency: 85 },
-  { name: 'C', category: 'Language', proficiency: 90 },
-  { name: 'Java', category: 'Language', proficiency: 80 },
+  { name: 'Python', category: 'Language', proficiency: 90, description: 'Core language for writing data pipelines, ML scripts, and scalable backends. Used extensively for data processing.' },
+  { name: 'Machine Learning', category: 'AI / ML', proficiency: 70, description: 'Built and benchmarked models for real-time predictions using TensorFlow, PyTorch, and scikit-learn.' },
+  { name: 'LLMs & AI', category: 'AI / ML', proficiency: 70, description: 'Integrating large language models and vision APIs into production applications with proper fallbacks.' },
+  { name: 'SQL', category: 'Database', proficiency: 85, description: 'Writing efficient queries and designing normalized schema for PostgreSQL & analytical databases.' },
+  { name: 'DSA', category: 'CS Core', proficiency: 85, description: 'Strong foundation in algorithms and data structures, enabling optimized and highly scalable system designs.' },
+  { name: 'C', category: 'Language', proficiency: 90, description: 'Low-level systems programming and memory management for highly performant embedded processes.' },
+  { name: 'Java', category: 'Language', proficiency: 80, description: 'Object-oriented application development and enterprise architecture patterns.' },
 ];
 
 // Hero pill labels (short versions for pills)

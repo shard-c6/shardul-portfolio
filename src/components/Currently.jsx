@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { CURRENTLY } from '../constants';
+import ParallaxTextLayer from './ParallaxTextLayer';
 
 export default function Currently() {
   const sectionRef = useRef(null);
@@ -27,7 +28,9 @@ export default function Currently() {
   }, []);
 
   return (
-    <section className="currently" ref={sectionRef}>
+    <section className="currently" ref={sectionRef} style={{ position: 'relative' }}>
+      <ParallaxTextLayer text="NOW" speed={1.5} opacity={0.03} />
+      
       <div className="currently-grid">
         <div
           className="currently-item"

@@ -39,7 +39,7 @@ function SkillCard({ skill, index }) {
   return (
     <div
       ref={cardRef}
-      className="skill-card"
+      className="skill-card group"
       style={{
         transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
         transformStyle: 'preserve-3d',
@@ -48,16 +48,23 @@ function SkillCard({ skill, index }) {
       onMouseLeave={handleMouseLeave}
       data-cursor="hover"
     >
-      <div className="skill-icon">
-        {SKILL_ICONS[skill.name] || <div />}
-      </div>
-      <div className="skill-name">{skill.name}</div>
-      <div className="skill-category">{skill.category}</div>
-      <div className="skill-bar">
-        <div
-          className="skill-bar-fill"
-          data-proficiency={skill.proficiency}
-        />
+      <div className="skill-card-inner">
+        <div className="skill-card-front">
+          <div className="skill-icon">
+            {SKILL_ICONS[skill.name] || <div />}
+          </div>
+          <div className="skill-name">{skill.name}</div>
+          <div className="skill-category">{skill.category}</div>
+          <div className="skill-bar">
+            <div
+              className="skill-bar-fill"
+              data-proficiency={skill.proficiency}
+            />
+          </div>
+        </div>
+        <div className="skill-card-reveal">
+          <p className="skill-description">{skill.description}</p>
+        </div>
       </div>
     </div>
   );

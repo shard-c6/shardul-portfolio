@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { PERSONAL } from '../constants';
+import ParallaxTextLayer from './ParallaxTextLayer';
 
 export default function About() {
   const sectionRef = useRef(null);
@@ -63,7 +64,9 @@ export default function About() {
   };
 
   return (
-    <section id="about" className="section about" ref={sectionRef}>
+    <section id="about" className="section about" ref={sectionRef} style={{ position: 'relative' }}>
+      <ParallaxTextLayer text="SYSTEMS" speed={2} reverse={true} opacity={0.03} />
+      
       <span className="section-number">01</span>
 
       <div className="about-grid">
