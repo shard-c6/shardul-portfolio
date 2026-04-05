@@ -81,7 +81,7 @@ export const PROJECTS = [
     title: 'PaperTrail — Government Form Digitisation Pipeline',
     description: 'Built a full-stack OCR and ML pipeline to digitise government forms using FastAPI, OpenCV, and Google Cloud Vision. Implemented uncertainty scoring and human verification to reduce extraction errors, with Firebase-based audit logging for complete traceability.',
     tags: ['FastAPI', 'OpenCV', 'Google Cloud Vision', 'Firebase', 'Machine Learning'],
-    thumbnail: '/projects/placeholder.webp',
+    thumbnail: '/images/project_pipeline.png',
     github: 'https://github.com/shard-c6',
     live: '',
     status: 'live'
@@ -91,7 +91,7 @@ export const PROJECTS = [
     title: 'GreenGuard — Plant Adoption Platform Backend',
     description: 'Developed a scalable FastAPI backend for a plant adoption platform with 25+ REST endpoints including authentication, adoption workflows, and AI-based plant identification using PlantNet API with caching and fallback mechanisms.',
     tags: ['FastAPI', 'Supabase', 'REST APIs', 'PlantNet API', 'Backend Development'],
-    thumbnail: '/projects/placeholder.webp',
+    thumbnail: '/images/project_plant.png',
     github: 'https://github.com/shard-c6',
     live: '',
     status: 'live'
@@ -101,7 +101,7 @@ export const PROJECTS = [
     title: 'AI-Based Memory Usage Forecaster',
     description: 'Built a real-time ML system to predict application memory usage and dynamically adjust OS-level allocation. Benchmarked multiple models using scikit-learn, TensorFlow, and PyTorch, deployed via FastAPI.',
     tags: ['Python', 'Machine Learning', 'TensorFlow', 'PyTorch', 'FastAPI', 'psutil'],
-    thumbnail: '/projects/placeholder.webp',
+    thumbnail: '/images/project_memory.png',
     github: 'https://github.com/shard-c6',
     live: '',
     status: 'active-development'

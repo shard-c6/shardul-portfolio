@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { SOCIAL } from '../constants';
 import { useMagneticHover } from '../hooks/useMagneticHover';
-import ParallaxTextLayer from './ParallaxTextLayer';
 
 function MagneticContactCard({ href, icon, label, handle }) {
   const { ref, handleMouseMove, handleMouseLeave } = useMagneticHover(10, 80);
@@ -54,8 +53,6 @@ export default function Contact() {
 
   return (
     <section id="contact" className="section contact" style={{ position: 'relative' }}>
-      <ParallaxTextLayer text="CONNECT" speed={1.8} opacity={0.03} />
-      
       <span className="section-number">06</span>
 
       <div className="contact-headline" ref={headlineRef}>

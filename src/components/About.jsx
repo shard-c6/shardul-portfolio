@@ -94,7 +94,7 @@ export default function About() {
         {/* Right — Bio */}
         <div className="about-text">
           <span className="section-label">About Me</span>
-          <h2 className="section-title">A student who thinks in systems.</h2>
+          <h2 className="section-title">A student who thinks in <span style={{ whiteSpace: 'nowrap' }}>systems.</span></h2>
 
           {PERSONAL.bio.map((paragraph, i) => (
             <p
