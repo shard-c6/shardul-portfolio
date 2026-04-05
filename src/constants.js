@@ -31,8 +31,8 @@ export const PERSONAL = {
   // Stats displayed in About section
   stats: [
     { number: '1+', label: 'Years Learning' },
-    { number: '2+', label: 'Projects Built' },
-    { number: '5+', label: 'Technologies' },
+    { number: '3+', label: 'Projects Built' },
+    { number: '7+', label: 'Technologies' },
   ],
 };
 
@@ -132,9 +132,9 @@ export const TIMELINE = [
     side: 'left',
   },
   {
-    date: '2024',
-    title: 'Began Exploring Data Engineering',
-    description: 'Transitioned from consumer of data to architect of data systems.',
+    date: '2026',
+    title: 'Attended first 24Hr hackathon',
+    description: 'Participated in a 24-hour hackathon and built a functional prototype.',
     side: 'right',
   },
 ];

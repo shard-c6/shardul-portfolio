@@ -66,7 +66,7 @@ export default function About() {
   return (
     <section id="about" className="section about" ref={sectionRef} style={{ position: 'relative' }}>
       <ParallaxTextLayer text="SYSTEMS" speed={2} reverse={true} opacity={0.03} />
-      
+
       <span className="section-number">01</span>
 
       <div className="about-grid">
@@ -94,7 +94,7 @@ export default function About() {
         {/* Right — Bio */}
         <div className="about-text">
           <span className="section-label">About Me</span>
-          <h2 className="section-title">An aspiring engineer who thinks with a systems mindset.</h2>
+          <h2 className="section-title">An engineer who thinks with a systems mindset</h2>
 
           {PERSONAL.bio.map((paragraph, i) => (
             <p
