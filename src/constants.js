@@ -10,7 +10,7 @@
 export const PERSONAL = {
   name: 'Shardul Chogale',
   initials: 'SC',
-  photo: '/images/profile.png', // Or use a direct URL
+  photo: '/images/profile.jpg', // Or use a direct URL
   role: 'Aspiring Data Engineer | Student',
   tagline: 'Building real-life scalable systems that make real change.',
 
