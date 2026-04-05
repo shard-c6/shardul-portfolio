@@ -392,6 +392,22 @@ export default function ScrollAnimations() {
           },
         });
 
+        // 15. LEETCODE TRANSITIONS
+        gsap.utils.toArray('.leetcode-transition-block').forEach((block) => {
+          gsap.to(block, {
+            opacity: 1,
+            rotateX: 0,
+            scale: 1,
+            duration: 0.6,
+            ease: "back.out(1.7)",
+            scrollTrigger: {
+              trigger: block,
+              start: "top 85%",
+              toggleActions: "play none none reverse",
+            }
+          });
+        });
+
       }); 
     };
 

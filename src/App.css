@@ -1724,6 +1724,77 @@ p {
   .project-card { flex: 0 0 450px; }
 }
 
+/* ═══════════════════════════════════════════════════════════
+   15. LEETCODE TRANSITIONS
+   ═══════════════════════════════════════════════════════════ */
+.leetcode-transition-wrapper {
+  width: 100%;
+  padding: var(--space-3xl) var(--space-md);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  /* Crazy digital texture bg */
+  background: radial-gradient(circle at center, rgba(34, 197, 94, 0.05) 0%, transparent 60%);
+}
+
+.leetcode-transition-block {
+  background: var(--bg-card);
+  border: var(--border-card);
+  border-radius: var(--radius-md);
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  position: relative;
+  /* Start transformed state for GSAP */
+  opacity: 0;
+  transform: perspective(1000px) rotateX(20deg) scale(0.8);
+  transform-style: preserve-3d;
+}
+
+.lt-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.2);
+  border-top-left-radius: var(--radius-md);
+  border-top-right-radius: var(--radius-md);
+}
+
+.lt-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.lt-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.lt-title {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  margin-left: var(--space-sm);
+}
+
+.lt-code {
+  padding: var(--space-lg);
+  color: var(--text-primary);
+  overflow-x: auto;
+}
+
+.lt-code pre {
+  margin: 0;
+}
+
 @media (max-width: 768px) {
   :root { --nav-height: 60px; }
   .nav-links { display: none; }
