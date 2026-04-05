@@ -1,24 +1,33 @@
 /* ═══════════════════════════════════════════════════════════
-   SHARDUL CHOGALE — EARTHY MINIMALIST 3D PORTFOLIO
-   Design System: warm beige + charcoal + sage green
+   SHARDUL CHOGALE — PROFESSIONAL DEVELOPER PORTFOLIO
+   Design System: Dark Slate + Hacker Green + IDE Syntax Accents
    ═══════════════════════════════════════════════════════════ */
 
 /* ─── DESIGN TOKENS ─── */
 :root {
   /* Colors */
-  --bg-primary: #F5F0E8;
-  --bg-surface: #EDE8DC;
-  --text-primary: #1A1916;
-  --text-secondary: #6B6760;
-  --accent: #7D9E7A;
-  --accent-soft: #BEB89E;
-  --accent-dark: #4A6B47;
-  --border-color: #BEB89E;
+  --bg-primary: #0F172A; /* slate-900 */
+  --bg-surface: #1E293B; /* slate-800 */
+  --bg-surface-hover: #334155; /* slate-700 */
+  --text-primary: #F8FAFC; /* slate-50 */
+  --text-secondary: #94A3B8; /* slate-400 */
+  --text-muted: #64748B; /* slate-500 */
+  
+  --accent: #22C55E; /* Hacker Green (green-500) */
+  --accent-soft: rgba(34, 197, 94, 0.2);
+  --accent-dark: #16A34A; /* green-600 */
+  --border-color: #334155; /* slate-700 */
+
+  /* Syntax Highlighting Colors (IDE Vibe) */
+  --syntax-keyword: #EC4899; /* pink-500 */
+  --syntax-function: #3B82F6; /* blue-500 */
+  --syntax-string: #F59E0B; /* amber-500 */
+  --syntax-variable: #8B5CF6; /* purple-500 */
 
   /* Typography */
-  --font-display: 'Playfair Display', Georgia, serif;
-  --font-body: 'DM Sans', -apple-system, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --font-display: 'Archivo', -apple-system, sans-serif;
+  --font-body: 'Space Grotesk', -apple-system, sans-serif;
+  --font-mono: 'Space Grotesk', 'Fira Code', monospace;
 
   /* Spacing */
   --space-xs: 0.25rem;
@@ -31,24 +40,24 @@
   --space-4xl: 6rem;
   --space-5xl: 8rem;
 
-  /* Shadows */
-  --shadow-sm: 0 1px 3px rgba(26, 25, 22, 0.04);
-  --shadow-md: 0 4px 12px rgba(26, 25, 22, 0.06);
-  --shadow-lg: 0 12px 32px rgba(26, 25, 22, 0.08);
+  /* Shadows (Minimal dark shadows) */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -2px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.5);
 
-  /* Borders */
-  --border-thin: 0.5px solid var(--border-color);
+  /* Borders - Blocky & sharp */
+  --border-thin: 1px solid var(--border-color);
   --border-card: 1px solid var(--border-color);
-  --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 20px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
 
   /* Transitions */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-smooth: cubic-bezier(0.45, 0, 0.15, 1);
-  --duration-fast: 200ms;
-  --duration-normal: 300ms;
-  --duration-slow: 500ms;
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 400ms;
 
   /* Layout */
   --max-width: 1280px;
@@ -68,7 +77,7 @@ html {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimeLegibility;
+  text-rendering: optimizeLegibility;
 }
 
 body {
@@ -77,7 +86,12 @@ body {
   background-color: var(--bg-primary);
   line-height: 1.6;
   overflow-x: hidden;
-  cursor: none;
+  /* cursor: none; */ /* Removing custom cursor none, IDE aesthetic feels better with pointers or block cursors */
+  background-image: 
+    linear-gradient(rgba(30, 41, 59, 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 41, 59, 0.3) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center center;
 }
 
 a {
@@ -89,7 +103,7 @@ button {
   font-family: inherit;
   border: none;
   background: none;
-  cursor: none;
+  cursor: pointer;
 }
 
 img {

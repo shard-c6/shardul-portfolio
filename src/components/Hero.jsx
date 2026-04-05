@@ -1,13 +1,10 @@
-import { useEffect, useRef, useState, lazy, Suspense } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { PERSONAL, STACK_PILLS, RESUME_PATH } from '../constants';
 import { Typewriter } from '../utils/typewriter';
-
-const HeroScene = lazy(() => import('./HeroScene'));
 
 export default function Hero() {
   const nameRef = useRef(null);
   const roleRef = useRef(null);
-  const taglineRef = useRef(null);
   const [nameRevealed, setNameRevealed] = useState(false);
 
   // Split text and animate name
@@ -26,7 +23,7 @@ export default function Hero() {
       span.style.display = 'inline-block';
       span.style.opacity = '0';
       span.style.transform = 'translateY(40px)';
-      span.style.transition = `opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1) ${i * 0.04}s, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) ${i * 0.04}s`;
+      span.style.transition = `opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1) ${i * 0.02}s, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) ${i * 0.02}s`;
       el.appendChild(span);
       return span;
     });
@@ -39,7 +36,7 @@ export default function Hero() {
           span.style.transform = 'translateY(0)';
         });
         // Show tagline after name animation
-        setTimeout(() => setNameRevealed(true), text.length * 40 + 400);
+        setTimeout(() => setNameRevealed(true), text.length * 20 + 200);
       });
     });
   }, []);
@@ -50,9 +47,9 @@ export default function Hero() {
     if (!el) return;
 
     const tw = new Typewriter(el, PERSONAL.roles, {
-      typeSpeed: 70,
-      deleteSpeed: 35,
-      pauseDuration: 2200,
+      typeSpeed: 50,
+      deleteSpeed: 25,
+      pauseDuration: 1500,
     });
     tw.start();
 
@@ -65,16 +62,16 @@ export default function Hero() {
         {/* Left side — Text */}
         <div className="hero-text">
           <div className="hero-pretitle">
-            Hello, I'm<span className="cursor-blink" />
+            <span style={{ color: 'var(--syntax-keyword)' }}>def</span> <span style={{ color: 'var(--syntax-function)' }}>init</span>(self):<span className="cursor-blink" />
           </div>
 
           <h1 className="hero-name" ref={nameRef}>
             {PERSONAL.name}
           </h1>
 
-          <div className="hero-role">
+          <div className="hero-role" style={{ color: 'var(--accent)' }}>
             <span ref={roleRef}></span>
-            <span className="cursor">|</span>
+            <span className="cursor">_</span>
           </div>
 
           <p
@@ -82,7 +79,7 @@ export default function Hero() {
             style={{
               opacity: nameRevealed ? 1 : 0,
               transform: nameRevealed ? 'translateY(0)' : 'translateY(16px)',
-              transition: 'opacity 0.8s ease, transform 0.8s ease',
+              transition: 'opacity 0.4s ease, transform 0.4s ease',
             }}
           >
             {PERSONAL.tagline}
@@ -93,11 +90,11 @@ export default function Hero() {
             style={{
               opacity: nameRevealed ? 1 : 0,
               transform: nameRevealed ? 'translateY(0)' : 'translateY(16px)',
-              transition: 'opacity 0.8s ease 0.15s, transform 0.8s ease 0.15s',
+              transition: 'opacity 0.4s ease 0.1s, transform 0.4s ease 0.1s',
             }}
           >
             <a href="#projects" className="btn btn-primary" data-cursor="cta">
-              View My Work <span>↓</span>
+              Deploy_Systems <span>()</span>
             </a>
             <a
               href={RESUME_PATH}
@@ -106,7 +103,7 @@ export default function Hero() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Download Resume
+              Get_Resume
             </a>
           </div>
 
@@ -115,7 +112,7 @@ export default function Hero() {
             style={{
               opacity: nameRevealed ? 1 : 0,
               transform: nameRevealed ? 'translateY(0)' : 'translateY(16px)',
-              transition: 'opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s',
+              transition: 'opacity 0.4s ease 0.2s, transform 0.4s ease 0.2s',
             }}
           >
             {STACK_PILLS.map((tech) => (
@@ -124,18 +121,52 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right side — 3D Canvas */}
-        <div className="hero-canvas">
-          <Suspense fallback={<div style={{ width: '100%', height: '100%' }} />}>
-            <HeroScene />
-          </Suspense>
+        {/* Right side — Terminal Canvas */}
+        <div className="hero-canvas" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <div style={{
+            background: 'var(--bg-primary)',
+            border: 'var(--border-card)',
+            borderRadius: 'var(--radius-md)',
+            padding: 'var(--space-lg)',
+            fontFamily: 'var(--font-mono)',
+            fontSize: '0.875rem',
+            lineHeight: '1.7',
+            width: '100%',
+            maxWidth: '500px',
+            boxShadow: 'var(--shadow-lg)',
+            opacity: nameRevealed ? 1 : 0,
+            transform: nameRevealed ? 'translateY(0)' : 'translateY(16px)',
+            transition: 'opacity 0.5s ease 0.3s, transform 0.5s ease 0.3s'
+          }}>
+            <div style={{ display: 'flex', gap: '8px', marginBottom: '16px' }}>
+              <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#EF4444' }}></div>
+              <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#F59E0B' }}></div>
+              <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#22C55E' }}></div>
+            </div>
+            <div>
+              <span style={{ color: 'var(--syntax-keyword)' }}>class</span> <span style={{ color: 'var(--syntax-variable)' }}>Developer</span>:
+              <div style={{ paddingLeft: '1.5rem' }}>
+                <span style={{ color: 'var(--syntax-keyword)' }}>def</span> <span style={{ color: 'var(--syntax-function)' }}>__init__</span>(self):
+                <div style={{ paddingLeft: '1.5rem' }}>
+                  self.name = <span style={{ color: 'var(--syntax-string)' }}>"{PERSONAL.name}"</span><br />
+                  self.focus = <span style={{ color: 'var(--syntax-string)' }}>"Data Engineering"</span><br />
+                  self.coffee = <span style={{ color: 'var(--syntax-variable)' }}>True</span>
+                </div>
+                <br />
+                <span style={{ color: 'var(--syntax-keyword)' }}>def</span> <span style={{ color: 'var(--syntax-function)' }}>build</span>(self):
+                <div style={{ paddingLeft: '1.5rem' }}>
+                  <span style={{ color: 'var(--syntax-keyword)' }}>return</span> <span style={{ color: 'var(--syntax-string)' }}>"Scalable Systems"</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
       {/* Scroll indicator */}
       <div className="scroll-indicator">
         <div className="scroll-indicator-line" />
-        <span className="scroll-indicator-text">scroll</span>
+        <span className="scroll-indicator-text">&lt;scroll /&gt;</span>
       </div>
     </section>
   );
