@@ -177,10 +177,11 @@ p {
 
 .section-label {
   font-family: var(--font-mono);
-  font-size: 0.6875rem;
+  font-size: 0.95rem;
+  font-weight: 600;
   color: var(--accent);
   text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.25em;
   margin-bottom: var(--space-md);
 }
 
@@ -1529,11 +1530,15 @@ p {
   flex-shrink: 0;
 }
 
-/* Marquee dividers between sections */
-.marquee-divider {
-  padding: var(--space-xl) 0;
-  border-top: var(--border-thin);
-  border-bottom: var(--border-thin);
+/* Marquee backgrounds inside sections */
+.marquee-background {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  z-index: 0;
+  pointer-events: none;
 }
 
 .marquee-accent .marquee-item {

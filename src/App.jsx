@@ -102,77 +102,80 @@ export default function App() {
         {/* Section 1 — Hero */}
         <Hero />
 
-        {/* ── Velocity Marquee Divider ── */}
-        <VelocityMarquee
-          text="ABOUT ME ✦"
-          count={10}
-          direction="left"
-          className="marquee-divider"
-        />
+        {/* Section 2 — About Me */}
+        <div style={{ position: 'relative' }}>
+          <VelocityMarquee
+            text="ABOUT ME ✦"
+            count={10}
+            direction="left"
+            className="marquee-background"
+          />
+          <About />
+        </div>
+
         <LeetcodeTransition hintName="Two Sum (O(N) Time)" snippet={LC_TWO_SUM} />
 
-        {/* Section 2 — About Me */}
-        <About />
+        {/* Section 3 — Skills & Tech Stack */}
+        <div style={{ position: 'relative' }}>
+          <VelocityMarquee
+            text="TECHNOLOGIES ✦ SKILLS ✦"
+            count={8}
+            direction="right"
+            className="marquee-background marquee-accent"
+          />
+          <Skills />
+        </div>
 
-        {/* ── Velocity Marquee Divider ── */}
-        <VelocityMarquee
-          text="TECHNOLOGIES ✦ SKILLS ✦"
-          count={8}
-          direction="right"
-          className="marquee-divider marquee-accent"
-        />
         <LeetcodeTransition hintName="Reverse Linked List (O(N) Time, O(1) Space)" snippet={LC_REVERSE_LIST} />
 
-        {/* Section 3 — Skills & Tech Stack */}
-        <Skills />
+        {/* Section 4 — Projects Showcase */}
+        <div style={{ position: 'relative' }}>
+          <VelocityMarquee
+            text="SELECTED WORK ✦"
+            count={10}
+            direction="left"
+            className="marquee-background"
+          />
+          <Projects />
+        </div>
 
-        {/* ── Velocity Marquee Divider ── */}
-        <VelocityMarquee
-          text="SELECTED WORK ✦"
-          count={10}
-          direction="left"
-          className="marquee-divider"
-        />
         <LeetcodeTransition hintName="Breadth-First Search" snippet={LC_BFS} />
 
-        {/* Section 4 — Projects Showcase */}
-        <Projects />
-
-        {/* ── Velocity Marquee Divider ── */}
-        <VelocityMarquee
-          text="JOURNEY ✦ TIMELINE ✦"
-          count={8}
-          direction="right"
-          className="marquee-divider marquee-accent"
-        />
-
         {/* Section 5 — Resume / Timeline */}
-        <Timeline />
-
-        {/* ── Velocity Marquee Divider ── */}
-        <VelocityMarquee
-          text="THOUGHTS ✦ BLOG ✦"
-          count={10}
-          direction="left"
-          className="marquee-divider"
-        />
+        <div style={{ position: 'relative' }}>
+          <VelocityMarquee
+            text="JOURNEY ✦ TIMELINE ✦"
+            count={8}
+            direction="right"
+            className="marquee-background marquee-accent"
+          />
+          <Timeline />
+        </div>
 
         {/* Section 6 — Blog / Thoughts */}
-        <Blog />
+        <div style={{ position: 'relative' }}>
+          <VelocityMarquee
+            text="THOUGHTS ✦ BLOG ✦"
+            count={10}
+            direction="left"
+            className="marquee-background"
+          />
+          <Blog />
+        </div>
 
         {/* Section 7 — Currently / Open To */}
         <Currently />
 
-        {/* ── Velocity Marquee Divider ── */}
-        <VelocityMarquee
-          text="LET'S BUILD SOMETHING ✦"
-          count={8}
-          direction="right"
-          className="marquee-divider marquee-large"
-        />
-
         {/* Section 8 — Contact */}
-        <Contact />
+        <div style={{ position: 'relative' }}>
+          <VelocityMarquee
+            text="LET'S BUILD SOMETHING ✦"
+            count={8}
+            direction="right"
+            className="marquee-background marquee-large"
+          />
+          <Contact />
+        </div>
 
         {/* Footer */}
         <Footer />
