@@ -1,48 +1,73 @@
 import { useEffect, useRef } from 'react';
 import { TIMELINE, RESUME_PATH } from '../constants';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Timeline() {
   const sectionRef = useRef(null);
-  const spineRef = useRef(null);
+  const spineProgressRef = useRef(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (!sectionRef.current || !spineRef.current) return;
+    // GSAP context for safe component cleanup
+    let ctx = gsap.context(() => {
+      // 1. Spine Progress Animation
+      gsap.to(spineProgressRef.current, {
+        height: "100%",
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".timeline",
+          start: "top center",
+          end: "bottom center",
+          scrub: true,
+        }
+      });
 
-      const rect = sectionRef.current.getBoundingClientRect();
-      const sectionHeight = sectionRef.current.offsetHeight;
-      const viewportHeight = window.innerHeight;
+      // 2. Timeline Card Staggered Animations
+      const entries = gsap.utils.toArray('.timeline-entry');
+      entries.forEach((entry) => {
+        const card = entry.querySelector('.timeline-card');
+        const dot = entry.querySelector('.timeline-dot');
+        const side = card.dataset.side;
 
-      // Calculate how much of the section has been scrolled through
-      const scrolledPast = viewportHeight - rect.top;
-      const progress = Math.max(0, Math.min(1, scrolledPast / (sectionHeight + viewportHeight * 0.5)));
-
-      spineRef.current.style.height = `${progress * 100}%`;
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Animate cards on scroll
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const card = entry.target;
-            card.style.opacity = '1';
-            card.style.transform = 'translateX(0)';
+        gsap.fromTo(card, 
+          { 
+            opacity: 0, 
+            x: side === 'left' ? -60 : 60 
+          },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.8,
+            ease: "expo.out",
+            scrollTrigger: {
+              trigger: entry,
+              start: "top 85%",
+              toggleActions: "play none none reverse"
+            }
           }
-        });
-      },
-      { threshold: 0.3 }
-    );
+        );
 
-    const cards = sectionRef.current?.querySelectorAll('.timeline-card');
-    cards?.forEach((card) => observer.observe(card));
+        // Dot animation
+        gsap.fromTo(dot,
+          { scale: 0, opacity: 0 },
+          {
+            scale: 1,
+            opacity: 1,
+            duration: 0.4,
+            ease: "back.out(1.7)",
+            scrollTrigger: {
+              trigger: entry,
+              start: "top 85%",
+              toggleActions: "play none none reverse"
+            }
+          }
+        );
+      });
+    }, sectionRef);
 
-    return () => observer.disconnect();
+    return () => ctx.revert();
   }, []);
 
   return (
@@ -55,7 +80,7 @@ export default function Timeline() {
         {/* Spine */}
         <div className="timeline-spine">
           <div className="timeline-spine-bg" />
-          <div ref={spineRef} className="timeline-spine-progress" />
+          <div ref={spineProgressRef} className="timeline-spine-progress" />
         </div>
 
         {/* Entries */}
@@ -65,10 +90,10 @@ export default function Timeline() {
               <div className="timeline-dot" />
               <div
                 className="timeline-card"
+                data-side={entry.side}
                 style={{
-                  opacity: 0,
-                  transform: `translateX(${entry.side === 'left' ? '-60px' : '60px'})`,
-                  transition: 'opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1)',
+                  opacity: 0, // Initial state before GSAP
+                  willChange: 'transform, opacity'
                 }}
               >
                 <div className="timeline-date">{entry.date}</div>
