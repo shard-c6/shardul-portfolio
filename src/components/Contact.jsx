@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { SOCIAL } from '../constants';
 import { useMagneticHover } from '../hooks/useMagneticHover';
 
@@ -28,31 +28,10 @@ function MagneticContactCard({ href, icon, label, handle }) {
 export default function Contact() {
   const headlineRef = useRef(null);
 
-  // Animate headline words on scroll
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const words = entry.target.querySelectorAll('.word');
-            words.forEach((word, i) => {
-              setTimeout(() => {
-                word.style.opacity = '1';
-                word.style.transform = 'translateY(0)';
-              }, i * 120);
-            });
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
 
-    if (headlineRef.current) observer.observe(headlineRef.current);
-    return () => observer.disconnect();
-  }, []);
 
   return (
-    <section id="contact" className="section contact" style={{ position: 'relative' }}>
+    <section id="contact" className="section contact" style={{ position: 'relative', background: 'var(--bg-primary)', zIndex: 1 }}>
       <span className="section-number">06</span>
 
       <div className="contact-headline" ref={headlineRef}>
@@ -63,9 +42,6 @@ export default function Contact() {
               className="word"
               style={{
                 display: 'inline-block',
-                opacity: 0,
-                transform: 'translateY(80px)',
-                transition: `opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)`,
                 marginRight: '0.3em',
               }}
             >
@@ -78,9 +54,6 @@ export default function Contact() {
             className="word"
             style={{
               display: 'inline-block',
-              opacity: 0,
-              transform: 'translateY(80px)',
-              transition: `opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.25s, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.25s`,
             }}
           >
             Something.
