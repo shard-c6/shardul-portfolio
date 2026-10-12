@@ -1,1 +1,5 @@
 /Shardul's Data Engineering Portfolio.zip
+node_modules/
+dist/
+.DS_Store
+.claude/
