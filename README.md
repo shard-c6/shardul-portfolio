@@ -1,36 +1,34 @@
 # shardul-portfolio
 
-Personal portfolio — data engineering. No build step and no dependencies: styles,
-scripts, fonts and SVGs are inlined into `index.html`. Two binary files stay loose
-so they can be swapped without a rebuild:
-
-    index.html
-    assets/shardul.png                    # portrait
-    assets/shardul-chogale-resume.pdf     # résumé
-
-Keep that folder layout — `index.html` references both by relative path.
-Dropping in a new résumé PDF at the same filename is all it takes to update it.
+Personal portfolio — data engineering. Built with Vite, GSAP (ScrollTrigger) and Lenis.
 
 ## Run it
 
-Serve the folder (relative paths need a server, not file://):
+    npm install
+    npm run dev        # http://localhost:5173
+    npm run build      # static site in dist/
+    npm run preview    # serve the build
 
-    python -m http.server
+## Where things live
+
+    index.html                 page markup, section by section
+    src/content.js             all copy and links: projects, stack, posts, reviews
+    src/styles.css             design tokens, layout, reduced-motion + mobile rules
+    src/modules/gate.js        lanyard entry (drag the card down)
+    src/modules/hero.js        walk-in character + typed line
+    src/modules/scenes.js      pinned scroll scenes (pipelines, models, work, dehelpers, philosophy)
+    src/modules/pong.js        Neural Pong (placeholder AI — swap policy() for the trained model)
+    src/modules/sections.js    renders content.js into the page, contact letter
+    public/assets/             portrait and résumé (drop a new PDF in at the same filename to update it)
+
+Visitors with "reduce motion" turned on get a static, fully readable version with no pinning.
 
 ## Deploy
 
-Any static host. For GitHub Pages: Settings → Pages → deploy from `main`, root.
-
-## What's on the page
-
-- Lanyard gate — drag the ID card to enter
-- Hero with a steppable pipeline diagram
-- Selected work: APIx (VegaBytes), dehelpers, EVNet Sentinel, GreenGuard — scroll-stacked case studies
-- Writing — the four-part dehelpers build log and one essay
-- Working philosophy, tech stack browser, teammate reviews, about, hire-me stepper
+GitHub Pages via `.github/workflows/deploy.yml` on every push to `main`.
+One-time setup: repo Settings → Pages → Source: **GitHub Actions**.
 
 ## Notes
 
 - Teammate review quotes are placeholders against real names, pending collection.
-- Source of truth for the design lives in the Omelette project; this folder is the build output.
-- The old Vite/React source in git history is superseded — this build does not use it.
+- The previous single-file "Nocturne" build lives in git history.
